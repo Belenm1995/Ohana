@@ -14,11 +14,11 @@ Aplicación web integral para la digitalización y gestión operativa completa d
 
 La plataforma cuenta con dos entornos totalmente diferenciados para garantizar la privacidad operativa:
 
-1. **🌐 Web Pública de Clientes (`/`):**
+1. **🌐 Web Pública de Clientes (`/`):** https://ohana-phi.vercel.app/
    - Página principal orientada al cliente final (carta de servicios, información del salón, galería y reserva de citas online).
    - Por diseño comercial y privacidad, **no muestra accesos visibles al software de gestión**.
    
-2. **🔐 Panel de Gestión Interna / CRM (`/crm`):**
+2. **🔐 Panel de Gestión Interna / CRM (`/crm`):** https://ohana-phi.vercel.app/crm o https://ohana-phi.vercel.app/login
    - Módulo privado para las especialistas y dirección del salón (Agenda semanal con Drag & Drop, Fichas técnicas capilares, TPV, Facturación VeriFactu, Caja y Stock).
 
 ### 🔑 Credenciales para probar el CRM:
