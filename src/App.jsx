@@ -1,5 +1,5 @@
-import { Routes, Route, Link, useLocation, Outlet, Navigate } from 'react-router-dom'
-import { Calendar, Users, Settings, CreditCard, Scissors, Package, BarChart, Megaphone, Banknote, Gift, Receipt } from 'lucide-react'
+import { Routes, Route, Link, useLocation, Outlet, Navigate, useNavigate } from 'react-router-dom'
+import { Calendar, Users, Settings, CreditCard, Scissors, Package, BarChart, Megaphone, Banknote, Gift, Receipt, LogOut } from 'lucide-react'
 import { cn } from './lib/utils'
 
 import LandingPage from './pages/public/LandingPage'
@@ -25,26 +25,39 @@ import { useState, useEffect } from 'react'
 
 // Auth Guard component
 const AuthGuard = ({ children }) => {
-  const [session, setSession] = useState(null);
+  const [session, setSession] = useState(() => {
+    try {
+      const local = localStorage.getItem('ohana_admin_session')
+      return local ? JSON.parse(local) : null
+    } catch {
+      return null
+    }
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
+      if (session) {
+        setSession(session)
+      }
       setLoading(false)
     })
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
+      if (session) {
+        setSession(session)
+      } else if (!localStorage.getItem('ohana_admin_session')) {
+        setSession(null)
+      }
     })
 
     return () => subscription.unsubscribe()
   }, [])
 
-  if (loading) return <div className="flex h-screen items-center justify-center bg-gray-50">Cargando Ohana...</div>
-  if (!session) return <LoginPage />
+  if (loading && !session) return <div className="flex h-screen items-center justify-center bg-gray-50 font-medium text-gray-500">Cargando Ohana...</div>
+  if (!session) return <LoginPage onLoginSuccess={(sess) => setSession(sess)} />
 
   return children
 }
@@ -68,6 +81,12 @@ const NavLink = ({ to, icon: Icon, children }) => {
 
 // Layout del Administrador
 const AdminLayout = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('ohana_admin_session')
+    supabase.auth.signOut().finally(() => {
+      window.location.href = '/login'
+    })
+  }
 
   return (
     <div className="flex h-screen bg-gray-50/50">
@@ -89,8 +108,15 @@ const AdminLayout = () => {
           <NavLink to="/admin/gift-cards" icon={Gift}>Regalos</NavLink>
           <NavLink to="/admin/cash" icon={Banknote}>Caja</NavLink>
           <NavLink to="/admin/expenses" icon={Receipt}>Gastos y Facturas</NavLink>
-          <div className="mt-auto">
+          <div className="mt-auto flex flex-col gap-1 pt-4 border-t border-gray-100">
             <NavLink to="/admin/settings" icon={Settings}>Configuración</NavLink>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-3 p-3 rounded-lg text-gray-500 hover:text-red-600 hover:bg-red-50 transition-colors font-medium text-left w-full"
+              title="Cerrar sesión"
+            >
+              <LogOut className="w-5 h-5" /> Salir del CRM
+            </button>
           </div>
         </nav>
       </aside>
