@@ -10,6 +10,26 @@ Aplicación web integral para la digitalización y gestión operativa completa d
 
 ---
 
+## 🚀 Acceso a la Demostración en Vivo (Evaluadores / CV)
+
+La plataforma cuenta con dos entornos totalmente diferenciados para garantizar la privacidad operativa:
+
+1. **🌐 Web Pública de Clientes (`/`):**
+   - Página principal orientada al cliente final (carta de servicios, información del salón, galería y reserva de citas online).
+   - Por diseño comercial y privacidad, **no muestra accesos visibles al software de gestión**.
+   
+2. **🔐 Panel de Gestión Interna / CRM (`/crm`):**
+   - Módulo privado para las especialistas y dirección del salón (Agenda semanal con Drag & Drop, Fichas técnicas capilares, TPV, Facturación VeriFactu, Caja y Stock).
+
+### 🔑 Credenciales para probar el CRM:
+Para acceder a la demostración interactiva (tanto en la web desplegada en Vercel como en local):
+- **Enlace de acceso:** Añade `/crm` al final de la dirección web (ej: `https://tu-proyecto.vercel.app/crm` o `http://localhost:5173/crm`).
+- **Usuario:** `admin`
+- **Contraseña:** `admin`
+- *(En la propia pantalla de inicio de sesión dispones además de un botón de **Autocompletar** para acceder en 1 solo clic).*
+
+---
+
 ## 🌟 Módulos y Funcionalidades Principales
 
 ### 1. 📅 Agenda Interactiva y Planificación de Citas
@@ -104,7 +124,8 @@ VITE_SUPABASE_ANON_KEY=tu-clave-publica-anon
 ```bash
 npm run dev
 ```
-La aplicación estará disponible en `http://localhost:5173`.
+- Web pública de clientes: `http://localhost:5173/`
+- Panel CRM de equipo: `http://localhost:5173/crm` *(Usuario: `admin` / Clave: `admin`)*
 
 ### 5. Compilar para producción
 ```bash
