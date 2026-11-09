@@ -36,7 +36,7 @@ export default function LoginPage() {
           <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
             <Scissors className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">Bienvenido a Maestro</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Acceso Equipo · Ohana</h1>
           <p className="text-gray-500 text-sm mt-1">Ingresa tus credenciales para continuar</p>
         </div>
 

@@ -52,15 +52,6 @@ export default function LandingPage() {
               <InstagramIcon className="w-6 h-6 text-pink-600" />
             </a>
 
-            <div className="h-6 w-[1.5px] bg-gray-200 hidden sm:block"></div>
-
-            <Link
-              to="/admin"
-              className="text-sm lg:text-base xl:text-lg font-medium text-gray-500 hover:text-gray-900 transition-colors hidden sm:block px-2 py-1 whitespace-nowrap"
-            >
-              Acceso Equipo
-            </Link>
-
             <Link
               to="/booking"
               className="bg-primary text-primary-foreground px-5 lg:px-7 py-2.5 lg:py-3 rounded-full text-base lg:text-lg font-semibold shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all whitespace-nowrap"

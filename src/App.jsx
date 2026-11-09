@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useLocation, Outlet } from 'react-router-dom'
+import { Routes, Route, Link, useLocation, Outlet, Navigate } from 'react-router-dom'
 import { Calendar, Users, Settings, CreditCard, Scissors, Package, BarChart, Megaphone, Banknote, Gift, Receipt } from 'lucide-react'
 import { cn } from './lib/utils'
 
@@ -43,7 +43,7 @@ const AuthGuard = ({ children }) => {
     return () => subscription.unsubscribe()
   }, [])
 
-  if (loading) return <div className="flex h-screen items-center justify-center bg-gray-50">Cargando Maestro...</div>
+  if (loading) return <div className="flex h-screen items-center justify-center bg-gray-50">Cargando Ohana...</div>
   if (!session) return <LoginPage />
 
   return children
@@ -109,6 +109,8 @@ function App() {
       <Route path="/booking" element={<BookingFlow />} />
       <Route path="/gift" element={<GiftFlow />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/crm" element={<Navigate to="/admin" replace />} />
+      <Route path="/equipo" element={<Navigate to="/admin" replace />} />
 
       {/* Rutas Privadas / Admin */}
       <Route path="/admin" element={<AuthGuard><AdminLayout /></AuthGuard>}>
