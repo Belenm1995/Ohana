@@ -20,6 +20,24 @@ export default function LoginPage({ onLoginSuccess }) {
 
     // 1. Acceso rápido para demostración / CV (admin / admin)
     if ((normalizedUser === 'admin' || normalizedUser === 'admin@ohana.com' || normalizedUser === 'admin@admin.com') && password === 'admin') {
+      try {
+        const { data, error: sbDemoErr } = await supabase.auth.signInWithPassword({
+          email: 'admin@ohana.com',
+          password: 'ohana_admin_2026',
+        })
+        if (!sbDemoErr && data?.session) {
+          localStorage.removeItem('ohana_admin_session')
+          if (onLoginSuccess) {
+            onLoginSuccess(data.session)
+          }
+          setLoading(false)
+          navigate('/admin/calendar')
+          return
+        }
+      } catch {
+        // Si Supabase rechaza (ej. email sin confirmar o sin red), seguimos con sesión demo local
+      }
+
       const demoSession = {
         user: {
           id: 'admin-cv-demo-id',
