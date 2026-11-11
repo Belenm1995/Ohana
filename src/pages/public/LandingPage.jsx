@@ -25,7 +25,7 @@ export default function LandingPage() {
           {/* LOGO */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0" onClick={() => setMobileMenuOpen(false)}>
             <img src="/logo.png" alt="Ohana" className="h-10 sm:h-14 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform" />
-            <span className="font-normal text-4xl sm:text-5xl md:text-7xl tracking-normal text-gray-900 leading-none inline-block -translate-y-0.5 sm:-translate-y-1.5 pr-1" style={{ fontFamily: "'MonteCarlo', cursive" }}>Ohana</span>
+            <span translate="no" className="notranslate font-normal text-4xl sm:text-5xl md:text-7xl tracking-normal text-gray-900 leading-none inline-block -translate-y-0.5 sm:-translate-y-1.5 pr-1" style={{ fontFamily: "'MonteCarlo', cursive" }}>Ohana</span>
           </Link>
 
           {/* NAVEGACIÓN ESCRITORIO (md y superior) */}
@@ -110,7 +110,7 @@ export default function LandingPage() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 text-gray-800 transition"
               >
-                <span>Nuestras Estilistas (Marina & Mery)</span>
+                <span>Nuestras Estilistas (<span translate="no" className="notranslate">Marina & Mery</span>)</span>
                 <ChevronRight className="w-4 h-4 text-gray-400" />
               </a>
               <a
@@ -180,7 +180,7 @@ export default function LandingPage() {
           {/* Tarjeta flotante escalable y centrada */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md px-5 py-4 sm:px-8 sm:py-6 md:p-8 rounded-2xl md:rounded-3xl shadow-2xl flex flex-col items-center justify-center max-w-[88%] max-h-[88%] transition-all">
             <img src="/logo.png" alt="Ohana Logo" className="w-24 h-24 sm:w-44 sm:h-44 md:w-72 md:h-72 object-contain" />
-            <h2 className="text-4xl sm:text-7xl md:text-[130px] font-normal tracking-normal text-gray-900 -mt-2 sm:-mt-4 md:-mt-8" style={{ fontFamily: "'MonteCarlo', cursive", lineHeight: 0.8 }}>Ohana</h2>
+            <h2 translate="no" className="notranslate text-4xl sm:text-7xl md:text-[130px] font-normal tracking-normal text-gray-900 -mt-2 sm:-mt-4 md:-mt-8" style={{ fontFamily: "'MonteCarlo', cursive", lineHeight: 0.8 }}>Ohana</h2>
           </div>
         </div>
 
@@ -333,12 +333,12 @@ export default function LandingPage() {
               <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden mb-5 sm:mb-6 bg-white shadow-sm border-4 border-white">
                 <img src="/Caricatura Marina.jpeg" alt="Marina" className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Marina</h3>
+              <h3 translate="no" className="notranslate text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Marina</h3>
               <p className="text-gray-500 text-sm sm:text-lg leading-relaxed mb-6">
                 Especialista en colorimetría y tratamientos capilares. Su pasión es encontrar el tono perfecto que ilumine tu rostro.
               </p>
               <Link to="/booking" state={{ staffName: 'Marina' }} className="inline-flex bg-gray-900 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-base sm:text-lg font-medium hover:bg-gray-800 transition-colors">
-                Reserva con Marina
+                Reserva con <span translate="no" className="notranslate ml-1.5">Marina</span>
               </Link>
             </div>
             
@@ -347,12 +347,12 @@ export default function LandingPage() {
               <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden mb-5 sm:mb-6 bg-white shadow-sm border-4 border-white">
                 <img src="/Caricatura Mery.jpeg" alt="Mery" className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Mery</h3>
+              <h3 translate="no" className="notranslate text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Mery</h3>
               <p className="text-gray-500 text-sm sm:text-lg leading-relaxed mb-6">
                 Experta en cortes de tendencia y peinados. Transforma cualquier idea en un estilo único y favorecedor que te encantará.
               </p>
               <Link to="/booking" state={{ staffName: 'Mery' }} className="inline-flex bg-gray-900 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-base sm:text-lg font-medium hover:bg-gray-800 transition-colors">
-                Reserva con Mery
+                Reserva con <span translate="no" className="notranslate ml-1.5">Mery</span>
               </Link>
             </div>
           </div>
